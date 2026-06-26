@@ -49,7 +49,7 @@ juce_add_plugin(Noisferatu
     NEEDS_MIDI_OUTPUT         FALSE
     IS_MIDI_EFFECT            FALSE
     EDITOR_WANTS_KEYBOARD_FOCUS FALSE
-    COPY_PLUGIN_AFTER_BUILD   TRUE
+    COPY_PLUGIN_AFTER_BUILD   FALSE
     VST3_CATEGORIES           "Instrument" "Synth")
 
 target_sources(Noisferatu PRIVATE

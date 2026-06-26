@@ -57,10 +57,11 @@ cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j           # builds VST3, CLAP, and a Standalone (for auditioning)
 ```
 
-With `COPY_PLUGIN_AFTER_BUILD`, the VST3 and CLAP are copied into your user plugin folders.
-To build a single format: `cmake --build build --target Noisferatu_VST3` (or
-`Noisferatu_CLAP`, `Noisferatu_Standalone`). The Standalone is just a convenient way to
-hear the synth without a host; drop `Standalone` from `FORMATS` if you don't want it.
+Build artifacts stay under `build/Noisferatu_artefacts/` (`COPY_PLUGIN_AFTER_BUILD` is
+off, so builds don't touch your user plugin folders). To build a single format:
+`cmake --build build --target Noisferatu_VST3` (or `Noisferatu_CLAP`,
+`Noisferatu_Standalone`). The Standalone is just a convenient way to hear the synth
+without a host; drop `Standalone` from `FORMATS` if you don't want it.
 
 ## Verifying faithfulness
 
