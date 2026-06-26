@@ -1,0 +1,26 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# --- macOS ---
+.DS_Store
+
+# --- Claude Code local settings ---
+.claude/settings.local.json
+
+# --- NumPy data ---
+# Ignore large/generated .npy arrays by default, but keep the small
+# project asset (real vinyl crackle extracted from the firmware).
+*.npy
+!vinyl_crackle.npy

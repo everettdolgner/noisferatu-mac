@@ -1,0 +1,5 @@
+# NOISFERATU Python port — dependencies
+# Install:  python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+numpy>=1.24
+sounddevice>=0.4.6
+PyQt6>=6.5
