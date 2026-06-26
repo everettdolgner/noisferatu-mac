@@ -19,8 +19,7 @@ public:
     bool hasEditor() const override { return true; }
 
     const juce::String getName() const override { return "Noisferatu"; }
-    // AU instruments (aumu) must accept MIDI even though NOISFERATU ignores notes.
-    bool acceptsMidi() const override  { return true; }
+    bool acceptsMidi() const override  { return false; }
     bool producesMidi() const override { return false; }
     bool isMidiEffect() const override { return false; }
     double getTailLengthSeconds() const override { return 0.0; }

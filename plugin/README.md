@@ -1,4 +1,4 @@
-# NOISFERATU — CLAP / VST3 / AU plugin
+# NOISFERATU — VST3 / CLAP plugin
 
 A JUCE plugin port of the NOISFERATU generative texture synth, built directly from the
 verified Python port in the parent directory (itself a port of
@@ -12,9 +12,9 @@ are ported to C++ and **verified bit-for-bit against the Python reference** (see
 
 The DSP core runs at the original **16 kHz**, exactly like the firmware — that fixed rate
 *is* the lo-fi character. The engine generates 16 kHz blocks and linearly upsamples them
-to the host sample rate (`Engine::nextHostSample`). The plugin is an **instrument**: it
-produces a continuous texture (no MIDI required); the mono engine is copied to all output
-channels.
+to the host sample rate (`Engine::nextHostSample`). The plugin is an output-only
+**instrument**: it produces a continuous texture (no MIDI, no notes); the mono engine is
+copied to all output channels.
 
 ### Parameters
 
@@ -54,11 +54,13 @@ fetched automatically on first configure (network required).
 
 ```sh
 cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j           # builds Standalone, VST3, AU, CLAP
+cmake --build build -j           # builds VST3, CLAP, and a Standalone (for auditioning)
 ```
 
-With `COPY_PLUGIN_AFTER_BUILD`, the VST3/AU/CLAP are copied into your user plugin folders.
-To build a single format: `cmake --build build --target Noisferatu_Standalone`.
+With `COPY_PLUGIN_AFTER_BUILD`, the VST3 and CLAP are copied into your user plugin folders.
+To build a single format: `cmake --build build --target Noisferatu_VST3` (or
+`Noisferatu_CLAP`, `Noisferatu_Standalone`). The Standalone is just a convenient way to
+hear the synth without a host; drop `Standalone` from `FORMATS` if you don't want it.
 
 ## Verifying faithfulness
 
